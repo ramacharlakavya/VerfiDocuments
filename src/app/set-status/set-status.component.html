@@ -1,0 +1,17 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<div>
+    <h1 align="center">set status of employee</h1>
+</div>
+<br>
+<div align="center">
+    EmpID: <input type="text" name="empid"  [(ngModel)]="verification.empid" class="form-group"  placeholder="Enter Employee ID"/><br>
+    status : <input type="text" name="status" [(ngModel)]="verification.status" class="form-group" required placeholder="set the Status"/><br>
+        <input type="button" value="set status" (click)="status()" class="btn btn-success"/>
+</div>  
+<br>
+<div>
+    <h2 align="center">{{message}}</h2>
+</div>
+
