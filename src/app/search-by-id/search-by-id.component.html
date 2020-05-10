@@ -13,12 +13,13 @@
     <input type="button" value="fetch details" (click)="fetchEmployee()" class="btn btn-primary" class="form-group"/>
 </div>
 <br>
+
 <div *ngFor="let doc of emp_docdetails ">
 <!--<div *ngIf="check" align="center">-->
         <h3>employee document : <span class="class">{{doc.docData}}</span></h3>
         <h3>employee name : <span class="class">{{doc.empName}}</span></h3>
 </div>
-<div align="center" *ngIf="check1" align="center">
+<div align="center" *ngIf="check" align="center">
     <h3>Employee with ID : does not exist</h3>
 </div>
 

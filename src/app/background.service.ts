@@ -21,6 +21,7 @@ export class EmployeeDocumentDto
   constructor(empId:number,docId:number,docType:string,docData:string,empName:string){
     this.empId = empId;
     this.docId = docId;
+    this.docData=docData;
     this.docType = docType;
     this.empName=empName;
 }
@@ -48,24 +49,26 @@ export class BackgroundService {
   verification:VerificationDto;
   public getlogindetails(empId:number,password:String){
     
-    return this.http.get("http://localhost:4985/BackGroundVerification/BackgroundVerifierLogin/"+empId+"/"+password);//,{responseType: 'json'});
+    return this.http.get("http://localhost:4929/bgv/login/"+empId+"/"+password);//,{responseType: 'json'});
   
+
   }
   public getdocumentbyid(empId:number){
     
-    return this.http.get("http://localhost:4985/BackGroundVerification/GetDocumentById/"+empId);//,{responseType: 'json'});
+    return this.http.get("http://localhost:4929/bgv/getdocumentbyid/"+empId);//,{responseType: 'json'});
   
   }
   public getdocumentbyname(empName:string){
+    const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
     
-    return this.http.get("http://localhost:4985/BackGroundVerification/GetDocumentByName/"+empName,{responseType: 'json'});
+    return this.http.get("http://localhost:4929/bgv/getdocumentbyname/"+empName,{headers,responseType: 'json'});
   
   }
   
   
   public setstatus(verf){
     console.log(verf);
-    return this.http.post("http://localhost:4985/BackGroundVerification/SetStatus",verf,{responseType: 'text'});
+    return this.http.post("http://localhost:4929/bgv/setstatus",verf,{responseType: 'text'});
   }
 
 

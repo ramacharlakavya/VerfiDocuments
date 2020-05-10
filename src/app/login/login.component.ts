@@ -10,7 +10,7 @@ import { AppComponent } from '../app.component';
 })
 export class LoginComponent implements OnInit {
 
-  userId:number;
+  empId:number;
   password:string;
 
   login_details:any;
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   
   check:boolean = false;
   check1:boolean = false;
-  empId:number;
+  
  
   constructor(private service:BackgroundService, private router:Router, private app1:AppComponent) { 
   }
@@ -27,14 +27,12 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   fetchEmployee(){
-    this.service.getlogindetails(this.userId,this.password).subscribe((data)=>this.login_details=data);
-    if(this.login_details == null){
-      this.check1 = true;
-      this.check = false;
+    this.service.getlogindetails(this.empId,this.password).subscribe((data)=>this.login_details=data);
+    if(this.login_details != null){
+     alert("login unsuccessfull");
     }
     else{
-      this.check1 = false;
-      this.check = true;
+      alert("login successfull")
       //this.router.navigate(['app-search-by-id']);
       //this.router.navigate(['app-search-by-name']);
       this.app1.validate();

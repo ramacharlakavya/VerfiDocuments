@@ -1,23 +1,34 @@
-<head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <style>
-        .class{
-            color: blue;
-            font-size: 35px;
-        }
-    </style>
-</head>
-<div class="row justify-content-center align-items-center h-100 a">
-    <input type="text" name="empName" [(ngModel)]="empname" placeholder="Enter Employee Name" class="form-group">    
-    <br>
-    <input type="button" value="fetch details" (click)="fetchEmployeedocument()" class="btn btn-primary" class="form-group"/>
-</div>
-<br>
-<div *ngFor="let doc of emp_docdetails ">
-<!--<div *ngIf="check" align="center">-->
-        <h3>employee document : <span class="class">{{doc.docData}}</span></h3>
-</div>
-<div align="center" *ngIf="check1" align="center">
-    <h3>Employee with name: does not exist</h3>
-</div>
-
+<div class="container">
+    <div class="form-group">
+        <label for="empName" >empName</label>
+        <input type="text" [(ngModel)]="empName" placeholder="Enter empName" name="empName" class="form-control" id="userId" required>
+      </div>
+  <button  class="btn btn-success"  (click)="submit(empName)">Submit</button>
+  
+      <table class="table" >
+  
+        <thead>
+            <tr>
+                <th>EmpId</th>
+                <th>EmpName</th>
+                <th>DocId</th>
+                <th>EmpType</th>
+                <th>DocData</th>      
+                
+              
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let r of employeedocumentdto">
+            <td> {{r.empId}} </td>
+            <td> {{r.empName}}</td>
+            <td> {{r.docId}} </td>
+            <td> {{r.docType}} </td>
+            <td> {{r.docData}} </td>
+                  
+          </tbody> 
+        </table>
+  
+  
+      </div>
+  
