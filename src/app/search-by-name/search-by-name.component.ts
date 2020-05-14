@@ -11,10 +11,10 @@ export class SearchByNameComponent implements OnInit {
   
   
 
-  empName:string;
-  emp_docdetails:any;
+  empName="";
+  
   status:boolean;
-  employeedocumentdto:EmployeeDocumentDto;
+  employeedocumentdto:EmployeeDocumentDto[];
   emp:EmployeeDocumentDto=new EmployeeDocumentDto(0,0,"","","");
   constructor(private service:BackgroundService,private router:Router) { 
     this.status=false;
@@ -24,7 +24,7 @@ export class SearchByNameComponent implements OnInit {
     ngOnInit(): void{}
   
       submit(empName:string){
-        console.log("ts"+empName)
+        console.log("Employee")
        this.service.getdocumentbyname(empName).subscribe(
          response=>  this.handleSuccessfulResponse(response),
         );
@@ -34,7 +34,7 @@ export class SearchByNameComponent implements OnInit {
         {
           console.log(response)
           this.status=true;
-          this.emp=response;
+          this.employeedocumentdto=response;
          //console.log(this.getord)
         }
     

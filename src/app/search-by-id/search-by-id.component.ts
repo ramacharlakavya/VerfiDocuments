@@ -28,15 +28,20 @@ export class SearchByIdComponent implements OnInit {
 
 
   fetchEmployee(){
-    this.service.getdocumentbyid(this.empid).subscribe((data)=>this.emp_docdetails=data);
+    this.service.getdocumentbyid(this.empid).subscribe((data)=>{this.emp_docdetails=data;
+    console.log(data);
     if(this.emp_docdetails == null){
-      this.check1 = true;
-      this.check = false;
+     
+     this.check1=true;
+     this.check=false;
     }
     else{
-      this.check1 = false;
-      this.check = true;
+     
+     
+      this.check1=false;
+      this.check=true;
       this.router.navigate(['app-set-status']);
     }
-  }
+  });
+}
 }

@@ -30,6 +30,7 @@ export class VerificationDto
 {
   empid:number;
   status:string;
+  verfId: number;
   constructor(empid:number,status:string)
   {
     this.empid=empid;
@@ -49,26 +50,26 @@ export class BackgroundService {
   verification:VerificationDto;
   public getlogindetails(empId:number,password:String){
     
-    return this.http.get("http://localhost:4929/bgv/login/"+empId+"/"+password);//,{responseType: 'json'});
+    return this.http.get("http://localhost:4937/bgv/login/"+empId+"/"+password);//,{responseType: 'json'});
   
 
   }
   public getdocumentbyid(empId:number){
     
-    return this.http.get("http://localhost:4929/bgv/getdocumentbyid/"+empId);//,{responseType: 'json'});
+    return this.http.get("http://localhost:4937/bgv/getdocumentbyid/"+empId);//,{responseType: 'json'});
   
   }
   public getdocumentbyname(empName:string){
     const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
     
-    return this.http.get("http://localhost:4929/bgv/getdocumentbyname/"+empName,{headers,responseType: 'json'});
+    return this.http.get("http://localhost:4937/bgv/getdocumentbyname/"+empName,{headers,responseType: 'json'});
   
   }
   
   
   public setstatus(verf){
     console.log(verf);
-    return this.http.post("http://localhost:4929/bgv/setstatus",verf,{responseType: 'text'});
+    return this.http.post("http://localhost:4937/bgv/setstatus",verf,{responseType: 'text'});
   }
 
 
